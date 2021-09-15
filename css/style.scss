@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+$desaturatedRed: hsl(0, 36%, 70%);
+$softRed: hsl(0, 93%, 68%);
+$darkGrayishRed: hsl(0, 6%, 24%);
+
+@mixin flexCenter(){
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin Reset(){
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*{
+  @include Reset;
+}
+
+main{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
+
+  .container{
+    display: flex;
+    justify-content: center;
+    flex: 1.8;
+    position: relative;
+    overflow: hidden;
+
+    .bg-image{
+      position: absolute;
+      width: 100%;
+
+      .img-bg{
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+      }
+    }
+
+    @media (max-width: 768px){
+      flex: 1.5;
+    }
+
+    .content{
+      position: absolute;
+      width: 70%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      .content__logo{
+        margin-top: 1rem;
+
+        @media (max-width: 425px){
+          margin-top: 0px;
+          padding: 1.5rem;
+        }
+      }
+
+      .content__banner{
+        width: 100%;
+        min-height: 200px;
+        display: none;
+
+        .img-banner{
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+      }
+
+      .h1-title{
+        display: flex;
+        flex-direction: column;
+        text-transform: uppercase;
+        font-size: 6rem;
+        letter-spacing: 15px;
+        margin-top: 4rem;
+
+        .title-1{
+          font-weight: 300;
+          color: $desaturatedRed;
+        }
+
+        .title-2{
+          font-weight: 400;
+          color: $darkGrayishRed;
+
+          @media (max-width: 425px) {
+            letter-spacing: 10px;
+          }
+        }
+
+        @media (max-width: 1024px){
+          font-size: 5rem;
+        }
+
+        @media (max-width: 768px){
+          font-size: 3.5rem;
+        }
+
+        @media (max-width: 425px){
+          margin-top: 0px;
+          text-align: center;
+          padding-top: 2.8rem;
+          font-size: 2.5rem;
+        }
+      }
+
+      .content__text{
+        max-width: 550px;
+        margin-top: -2rem;
+
+        .p-text{
+          font-size: 1.2rem;
+          font-weight: 400;
+          color: $desaturatedRed;
+          line-height: 30px;
+          
+          @media (max-width: 768px){
+            font-size: 1rem;
+            line-height: 1.5rem;
+          }
+          @media (max-width: 425px){
+            padding: 1.5rem;
+            font-size: 1rem;
+            text-align: center;
+          }
+        }
+
+        @media (max-width: 425px){
+          margin-top: 0px;
+        }
+        
+      }
+
+      .content__form{
+        .form{
+          display: flex;
+          position: relative;
+          margin-top: -2rem;
+  
+          .content__btn{
+            display: flex;
+            flex-direction: column;
+
+            .input-field{
+              position: relative;
+              width: 480px;
+              min-height: 55px;
+              border: 1px solid hsla(0, 6%, 24%, 0.247);
+              border-radius: 100px;
+              background-clip: padding-box;
+              background-color: transparent;
+              font-size: 16px;
+              color: $desaturatedRed;
+              
+              &::placeholder{
+                padding-left: 30px;
+                color: hsla(0, 36%, 70%, 0.575);
+                font-weight: 400;
+              }
+  
+              &:focus{
+                outline: none;
+                padding-left: 15px;
+                border-color: hsla(0, 6%, 24%, 0.315);
+                transition: ease all 0.3s;
+  
+                &::placeholder{
+                  padding-left: 15px;
+                }
+              }
+  
+              @media (max-width: 1024px){
+                width: 400px;
+              }
+  
+              @media (max-width: 768px){
+                width: 340px;
+              }
+  
+              @media (max-width: 425px){
+                width: 300px;
+                min-height: 40px;
+                font-size: 0.8rem;
+              }
+            }
+      
+            .btn-submit{
+              position: absolute;
+              left: 420px;
+              width: 90px;
+              min-height: 55px;
+              border: none;
+              border-radius: 30px;
+              background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+              box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+              cursor: pointer;
+
+              &:hover{
+                background: hsl(0, 80%, 86%);
+              }
+  
+              @media (max-width: 1024px){
+                left: 350px;
+              }
+  
+              @media (max-width: 768px){
+                left: 280px;
+              }
+  
+              @media (max-width: 425px){
+                left: 240px;
+                width: 60px;
+                min-height: 40px;
+              }
+            }
+
+            .error-alert{
+              margin-top: 0.5rem;
+              margin-left: 1rem;
+              font-size: 0.8rem; 
+              color: $softRed; 
+              display: none;
+            }
+
+            @media (max-width: 425px){
+              margin-bottom: 1rem;
+            }
+          }
+  
+          @media (max-width: 425px){
+            margin-top: 0px;
+          }
+        } 
+  
+        @media (max-width: 425px){
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      
+      @media (max-width: 425px){
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 425px){
+      overflow: scroll;
+    }
+      
+  }
+
+  .banner{
+    flex: 1;
+    
+    .banner-img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
